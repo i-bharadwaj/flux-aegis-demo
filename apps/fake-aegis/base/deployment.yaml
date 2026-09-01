@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fake-aegis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fake-aegis
+  template:
+    metadata:
+      labels:
+        app: fake-aegis
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: html
+          configMap:
+            name: fake-aegis

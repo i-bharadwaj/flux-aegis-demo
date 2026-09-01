@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fake-aegis
+data:
+  index.html: |
+    <!doctype html>
+    <html><body style="font-family:sans-serif;padding:2rem">
+      <h1>fake-aegis</h1>
+      <p>version: 0.0.0</p>
+    </body></html>
